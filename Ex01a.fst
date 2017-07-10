@@ -28,7 +28,6 @@ let passwd : filename = "demo/password"
 let readme : filename = "demo/README"
 let tmp    : filename = "demo/tempfile"
 
-
 val staticChecking : unit -> ML unit
 let staticChecking () =
   let v1 = read tmp in
@@ -59,4 +58,5 @@ let dynamicChecking () =
   checkedWrite passwd "junk" (* this raises exception *)
 
 let main = staticChecking (); dynamicChecking ()
+
 //
