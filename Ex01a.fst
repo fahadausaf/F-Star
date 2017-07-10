@@ -59,3 +59,4 @@ let dynamicChecking () =
   checkedWrite passwd "junk" (* this raises exception *)
 
 let main = staticChecking (); dynamicChecking ()
+//
