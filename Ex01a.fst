@@ -2,7 +2,6 @@ module Ex01a
 open FStar.All
 //safe-read-write
 
-
 type filename = string
 
 (** [canWrite] is a function specifying whether a file [f] can be written *)
@@ -48,7 +47,6 @@ assume val checkedWrite : filename -> string -> ML unit
 // solution here
 //
 //
-
 
 let dynamicChecking () =
   let v1 = checkedRead tmp in
