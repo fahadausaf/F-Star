@@ -52,7 +52,7 @@ let rec factorial_is_greater_than_arg x =
   | _ -> factorial_is_greater_than_arg (x - 1)
 
 (*  Exercise 3c: Prove the following property for the fibonacci function: *)
-
+(*
 val fibonacci : nat -> Tot nat
 let rec fibonacci n =
   if n <= 1 then 1 else fibonacci (n - 1) + fibonacci (n - 2)
@@ -69,3 +69,8 @@ let rec factorial_is_greater_than_arg x =
   match x with
   | 3 -> ()
   | _ -> admit()
+*)
+
+let main =
+  IO.print_string ("Fib 5 = " ^ (string_of_int (fibonacci 5)));
+  ()
