@@ -1,4 +1,4 @@
-module FStar.BytesUTF
+module UTF8
 
 open FStar.Seq
 open FStar.Char
@@ -17,7 +17,7 @@ abstract type string = seq FStar.Char.char
 
 assume val utf8_encode: string -> bytes
 assume val utf8_decode: bytes -> option string
-
+(*)
 (* UTF-8 Encoding *)
 val get_byte_count: s:string { length s >= 4 /\ length s <= 5}  -> Tot(nat)
 let get_byte_count s =
@@ -29,29 +29,9 @@ let get_byte_count s =
             if (int_of_char first = 48 && int_of_char second = 48 && int_of_char third < 55 ) then 1
             else if (int_of_char first = 48 && int_of_char second >= 48 && int_of_char third <= 55 ) then 2
             else 3
-(*
-val get_byte_count2: l:list String.char { List.Tot.length l >= 4 /\ List.Tot.length l <= 5} -> Tot(nat)
-let get_byte_count2 l =
-  if length(of_list l) = 5 then 4 else
-    let s = of_list l in
-    assume(Seq.length s = List.Tot.length l);
-      let first = head s in
-        let second = head (tail s) in
-          let third = head (tail (tail s)) in
-            let fourth = last s in
-              if (int_of_char first = 48 && int_of_char second = 48 && int_of_char third < 55 ) then 1
-              else if (int_of_char first = 48 && int_of_char second >= 48 && int_of_char third <= 55 ) then 2
-              else 3
-
-open FStar.All
-
-  let main () : ML unit =
-  //let l = FStar.String.list_of_string "10AC" in
-  let l = ['a'; 'a'; 'a'; 'a'] in
-  assert_norm(List.Tot.length l = 4);
-(*
-  IO.print_string ("UTF-8 Encoding: " ^ (string_of_int (get_byte_count2 l)));
-  *)
-  IO.print_string ("Hello World: " ^ (string_of_int (123)));
-  ()
 *)
+let v = int_of_char 'A'
+
+let main =
+  IO.print_string ("value " ^ (string_of_int (v)));
+  ()
