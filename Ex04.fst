@@ -92,6 +92,24 @@ val rev_injective2: l1:list 'a -> l2:list 'a
            (ensures  (l1 == l2))
 let rev_injective2 #t l1 l2 = rev_involutive l1; rev_involutive l2
 
+let rec map f l = match l with
+  | [] -> []
+  | hd::tl -> f hd :: map f tl
+
+
+type option 'a =
+  | None : option 'a
+  | Some : v:'a -> option 'a
+
+let rec find f l = match l with
+  | [] -> None
+  | hd :: tl -> if f hd then Some hd else find f tl
+
+
+
+
+
+
 
 
 (**)
